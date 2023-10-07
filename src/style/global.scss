@@ -1,0 +1,15 @@
+@import './var.scss';
+body{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background-color: rgba(#94A3B8, .1);
+}
+
+main{
+    margin: 0 auto;
+    max-width: max-content;
+}
+
+.field__margin{
+    margin-top: 24px;
+}

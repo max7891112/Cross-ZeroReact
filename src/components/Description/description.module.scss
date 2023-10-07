@@ -1,0 +1,71 @@
+@import '../../style/var.scss';
+.description {
+    margin: 20px auto;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-left: 8px;
+
+    &__backToHome {
+        font-size: 20px;
+        line-height: 15px;
+        color: $color-light-green;
+        padding-left: 20px;
+        position: relative;
+        &::after{
+            content: "";
+            background-image: url('./img/line.svg');
+            width: 16px;
+            height: 8px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            
+        }
+    }
+
+    &__title {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    &__iconsContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__star {
+        cursor: pointer;
+    }
+
+    &__people {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        p{
+            font-size: 16px;
+            line-height: normal;
+            padding-left: 5px;
+        }
+        
+    }
+
+    &__counterPeople {
+    }
+
+    &__clock {
+        display: flex;
+        cursor: pointer;
+    }
+
+    &__time {
+        font-size: 16px;
+        line-height: normal;
+        padding-left: 5px;
+    }
+}
