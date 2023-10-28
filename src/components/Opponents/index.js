@@ -1,1 +1,1 @@
-export {Opponents} from './Opponents.jsx'
+export { Opponents } from "./Opponents.jsx";

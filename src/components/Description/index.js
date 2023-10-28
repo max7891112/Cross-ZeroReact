@@ -1,1 +1,1 @@
-export {Description} from  './Description.jsx'
+export { Description } from "./Description.jsx";

@@ -1,74 +1,94 @@
-@import '../../style/var.scss';
+@import "../../style/var.scss";
 .field {
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0px 4px 6px -1px #0000001A;
-    padding: 24px 32px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0px 4px 6px -1px #0000001a;
+  padding: 24px 32px;
 
+  &__topContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    &__topContainer {
-        display: flex;
-        justify-content: space-between;
+  &__leftPart {
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    p {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      padding-right: 5px;
     }
+  }
 
-    &__leftPart {
-        
+  &__next {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 14px;
+      line-height: 15px;
+      color: $color-light-grey;
+      padding-right: 5px;
     }
+  }
 
-    &__step {
-        display: flex;
-        align-items: center;
-        p{
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 24px;
-            padding-right: 5px;
-        }
-    }
+  &__rightPart {
+    display: flex;
+    gap: 10px;
+  }
 
-    &__next {
-        display: flex;
-        align-items: center;
-        p{
-            font-size: 14px;
-            line-height: 15px;
-            color: $color-light-grey;
-            padding-right: 5px;
-        }
-    }
+  &__fieldContainer {
+    display: grid;
+    grid-template-columns: repeat(19, 30px);
+    grid-template-rows: repeat(19, 30px);
+    padding: 2px 1px 1px 2px;
+    margin-top: 12px;
+  }
 
-    &__rightPart {
-        display: flex;
-        gap: 10px;
-    }
-
-    &__fieldContainer {
-        display: grid;
-        grid-template-columns: repeat(19, 30px);
-        grid-template-rows: repeat(19, 30px);
-        padding: 1px 0 0 1px;
-        margin-top: 12px;
-    }
-
-    &__cell{
-        border: 1px solid $color-light-grey;
-        margin: -1px 0 0 -1px;
-        background-color: transparent;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  &__cell {
+    border: 1px solid $color-light-grey;
+    margin: -1px 0 0 -1px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .symbolX {
-    color: red;
-  }
-  
+  color: red;
+}
+
 .symbolO {
-    color: green;
-  }
+  color: green;
+}
+
+.symbolT {
+  color: #2563eb;
+}
+
+.symbolS {
+  color: #c026d3;
+}
 
 .symbol {
-    font-size: 20px;
-    line-height: 24px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cellWinX {
+  background: rgba(255, 0, 0, 0.1);
+}
+.cellWinO {
+  background: rgba(1, 254, 22, 0.1);
+}
+.cellWinT {
+  background: rgba(#2563eb, 0.1);
+}
+.cellWinS {
+  background: rgba(#c026d3, 0.1);
+}

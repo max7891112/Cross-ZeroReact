@@ -1,64 +1,68 @@
-@import '../../style/var.scss';
+@import "../../style/var.scss";
 .header {
-    width: 100%;
-    background-color: white;
-    height: 100px;
-    padding: 0 10px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0px 4px 10px 0px #0000001A;
+  width: 100%;
+  background-color: white;
+  height: 100px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 10px 0px #0000001a;
 
-    &__leftPartContainer {
-        display: flex;
-        align-items: center;
-    }
-
-    &__imgContainer {
-        padding: 0 50px 0 30px;
-    }
-}
-.avatar {
+  &__leftPartContainer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-right: 30px;
+  }
 
-    &__descContainer {
-        padding: 0 0 0 15px;
-    }
+  &__imgContainer {
+    padding: 0 50px 0 30px;
+  }
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
 
-    &__name {
-        font-size: 18px;
-        line-height: 22px;
-        color: $color-light-green;
-        transition: all .3s ease;
-        cursor: pointer;
-        &:hover{
-            color: $color-aqua-green;
-        }
-    }
+  &__descContainer {
+    padding: 0 0 0 15px;
+  }
 
-    &__rate {
-        color: $color-light-grey;
-    }
+  &__name {
+    font-size: 18px;
+    line-height: 22px;
+    color: $color-light-green;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-    &__vectorContainer{
-        padding: 15px;
-        cursor: pointer;
-        transition: all .5s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        svg path{
-            transition: all .3s ease;
-            fill: $color-light-green;
-        }
-        &:hover svg path{
-            fill: #25d2c3;
-        }
+    &:hover {
+      color: $color-aqua-green;
     }
+  }
+
+  &__rate {
+    color: $color-light-grey;
+  }
+
+  &__vectorContainer {
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg path {
+      transition: all 0.3s ease;
+      fill: $color-light-green;
+    }
+    &:hover svg path {
+      fill: #25d2c3;
+    }
+  }
 }
 
-.margin{
-    margin-left: 48px;
+.margin {
+  margin-left: 48px;
 }

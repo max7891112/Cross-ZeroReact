@@ -1,61 +1,78 @@
-@import '../../style/var.scss';
-.opponents{
+@import "../../style/var.scss";
+.opponents {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  gap: 12px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0px 4px 6px -1px #0000001a;
+  padding: 0 32px;
+  width: 643px;
+
+  &__person {
+    padding: 8px 10px;
+    position: relative;
+  }
+
+  &__sign {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px #0000001a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__timeContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0px 4px 6px -1px #0000001A;
-    padding: 0 32px;
+  }
 
-    &__leftPerson{
-        padding: 16px 0;
-        position: relative;
-    }
+  &__time {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    width: 53px;
+    color: rgba($color-light-grey, 0.3);
+  }
 
-    &__sign{
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        position: absolute;
-        top: 16%;
-        left: -4%;
-        background-color: white;
-        box-shadow: 0px 1px 3px 0px #0000001A;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  &__active{
+    color: black;
+  }
 
-    }
+  &__divider {
+    height: 24px;
+    width: 1px;
+    background-color: rgba($color-light-grey, 0.3);
+    margin: 0 30px;
+  }
 
-    &__timeContainer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  &__profileContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 150px;
+  }
 
-    &__leftTime{
-        font-size: 18px;
-        line-height: 22px;
-        font-weight: 600;
-        padding-right: 40px;
-    }
+  &__dangerTime{
+    color: $color-orange;
+  }
+}
 
-    &__rightTime{
-        font-size: 18px;
-        line-height: 22px;
-        font-weight: 600;
-        color: $color-orange;
-        ;
-    }
+.order1 {
+  order: 1;
+}
 
-    &__rightPerson{
-        
-    }
+.order2 {
+  order: 2;
+}
 
-    &__divider{
-        height: 24px;
-        width: 1px;
-        background-color: rgba($color-light-grey, .3);
-    }
+.order3 {
+  order: 3;
 }

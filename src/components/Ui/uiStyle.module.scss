@@ -1,50 +1,50 @@
-@import '../../style/var.scss';
-.button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .3s ease;
+@import "../../style/var.scss";
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
-.play{
-    height: 45px;
-    min-width: 180px;
-    padding: 8px 20px;
-    border-radius: 8px;
-    color: white;
-    background-color: $color-light-green;
-    font-size: 24px;
-    line-height: 30px;
-    &:hover{
-        background-color: $color-aqua-green;
-    }
+.play {
+  height: 45px;
+  min-width: 180px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: white;
+  background-color: $color-light-green;
+  font-size: 24px;
+  line-height: 30px;
+  &:hover {
+    background-color: $color-aqua-green;
+  }
 }
 
-.draw{
-    height: 32px;
-    min-width: 90px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    color: white;
-    background-color: $color-light-green;
-    font-size: 16px;
-    line-height: 20px;
-    &:hover{
-        background-color: $color-aqua-green;
-    }
+.draw {
+  height: 32px;
+  min-width: 90px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  color: white;
+  background-color: $color-light-green;
+  font-size: 16px;
+  line-height: 20px;
+  &:hover {
+    background-color: $color-aqua-green;
+  }
 }
 
-.giveUp{
-    height: 32px;
-    min-width: 90px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    color: $color-light-green;
-    background-color: transparent;
-    font-size: 16px;
-    line-height: 20px;
-    border: 1px solid $color-light-green;
-    &:hover{
-        background-color: $color-light-white;
-    }
+.giveUp {
+  height: 32px;
+  min-width: 90px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  color: $color-light-green;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px solid $color-light-green;
+  &:hover {
+    background-color: $color-light-white;
+  }
 }

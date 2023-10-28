@@ -15,10 +15,7 @@ export function Game() {
 
   return (
     <div className={styles["game"]}>
-      <GameInfo
-        winnerSymbol={winnerSymbol}
-        currentStep={currentStep}
-      />
+      <GameInfo winnerSymbol={winnerSymbol} currentStep={currentStep} />
       <div className={styles["game-field"]}>
         {cells.map((symbol, index) => (
           <GameCell

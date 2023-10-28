@@ -1,7 +1,6 @@
 // import { GameSymbol } from "./GameSymbol";
 import styles from "../../../pages/index.module.scss";
 export function GameInfo({ winnerSymbol, currentStep }) {
-
   if (winnerSymbol) {
     return (
       <div className={styles["game-info"]}>

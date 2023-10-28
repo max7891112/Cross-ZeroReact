@@ -1,8 +1,4 @@
-import Head from "next/head"
+import Head from "next/head";
 export function MainLayout() {
-    return (
-        <>
-            
-        </>
-    )
+  return <></>;
 }
