@@ -3,18 +3,23 @@ import { Description } from "../src/components/Description";
 import { Field, useGameState } from "../src/components/Field";
 import { Header } from "../src/components/Header";
 import { Opponents } from "../src/components/Opponents";
+import React from "react";
 
 export default function HomePage() {
-  const [playersCount] = useState(1);
-  const { cells, currentStep, nextStep, handleCellClick } = useGameState({
-    playersCount,
+  const [playersCount] = useState(4);
+  const { cells, currentStep, nextStep, handleCellClick, isWinner, handlePlayerTimeOver} = useGameState({
+    playersCount
   });
   return (
     <>
       <Header />
       <main className="main">
         <Description playersCount={playersCount} />
-        <Opponents playersCount={playersCount} currentStep={currentStep}/>
+        <Opponents playersCount={playersCount}
+        isWinner={isWinner} 
+        currentStep={currentStep}
+        onPlayerTimeOver={handlePlayerTimeOver}
+        />
         <Field margin="field__margin" 
         cells={cells} 
         currentStep={currentStep} 

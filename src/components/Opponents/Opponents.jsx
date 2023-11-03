@@ -9,6 +9,7 @@ import lara from "../Ui/img/lara.png";
 import dodik from "../Ui/img/dodik.png";
 import { GAME_SYMBOLS } from "../Field/constants.js";
 import { GameSymbol } from "../Field/GameSymbol.jsx";
+import { MOVE_ORDER } from "../Field/constants.js";
 
 const players = [
   {
@@ -40,7 +41,8 @@ const players = [
     symbol: GAME_SYMBOLS.SQUARE,
   },
 ];
-export function Opponents({ playersCount, currentStep }) {
+
+export function Opponents({ playersCount, currentStep, isWinner, onPlayerTimeOver }) {
   return (
     <>
       <div className={stylesOpponent.opponents}>
@@ -49,8 +51,10 @@ export function Opponents({ playersCount, currentStep }) {
             key={player.id}
             playerInfo={player}
             isRight={index % 2 === 1}
-            currentStep={currentStep}
-            isTimerRunning={currentStep === player.symbol}
+            isTimerRunning={currentStep === player.symbol && !isWinner}
+            isWinner={isWinner}
+            playersCount={playersCount}
+            onTimeOver ={() => onPlayerTimeOver(player.symbol)}
           />
         ))}
       </div>
@@ -58,18 +62,27 @@ export function Opponents({ playersCount, currentStep }) {
   );
 }
 
-function PlayerInfo({ playerInfo, isRight, isTimerRunning }) {
+function PlayerInfo({ playerInfo, isRight, isTimerRunning, isWinner, playersCount, onTimeOver }) {
+  
   const [seconds, setSeconds]  = useState(60)
 
   const minuteString = String(Math.floor(seconds / 60)).padStart(2, '0') // функция заполняющая строку определенными значениями
   const secondsString = String(seconds % 60).padStart(2, '0')
 
   const isDanger = seconds < 10
-  useEffect(()=> {
+
+  // function getPreviousElem(currentStep, count) {
+  //     const shortMoveOrder = MOVE_ORDER.slice(0, count);
     
+  //     const previousSymbol = shortMoveOrder.indexOf(currentStep) - 1;
+  //     console.log( shortMoveOrder)
+  //     return shortMoveOrder[previousSymbol] ?? shortMoveOrder[shortMoveOrder.length - 1];
+  // }
+
+  useEffect(()=> {
     const timer = setInterval(()=> {
       if(isTimerRunning) {
-        setSeconds(prevSeconds => prevSeconds > 0 ? prevSeconds - 1 : prevSeconds)
+        setSeconds(prevSeconds => prevSeconds > 0 ? isWinner ? prevSeconds : prevSeconds - 1 : prevSeconds)
       }
     },1000)
 
@@ -77,9 +90,15 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning }) {
       clearInterval(timer)
       setSeconds(60)
     }
+  }, [isTimerRunning, isWinner])
 
-    
-  }, [isTimerRunning])
+  useEffect(()=> {
+      if(seconds == 55) {
+        onTimeOver()
+      }
+    } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  , [seconds, playersCount, isWinner])
 
   return (
     <div

@@ -10,14 +10,14 @@ const prohibitIndexesObj = {}
 for(let i = 1; i <= 19; i++) {
   prohibitIndexesObj[18 * i + (i - 1)] = [18 * i + (i - 1) + 1, 18 * i + (i - 1) + 20, 18 * i + (i - 1) - 18]
 }
- 
-const objWinnerVariabales = {
-  1: 1,
-  19: 1,
-  20:  1,
-  18:  1
-}
-export function AlgoritmWinner (index, currentStep, cells) {
+
+export function algoritmWinner (index, currentStep, cells, setIsWinner) {
+  const objWinnerVariabales = {
+    1: 1,
+    19: 1,
+    20:  1,
+    18:  1
+  }
   function baseRecursion(currentIndex, indexDirection, variableDirection, sequenceWinnerSymbols) {
     sequenceWinnerSymbols.add(currentIndex)
     if(cells[currentIndex + indexDirection] == currentStep) {
@@ -51,12 +51,12 @@ export function AlgoritmWinner (index, currentStep, cells) {
           let gameFieldGrid = document.getElementById('gameFieldGrid')
           let allButtons = gameFieldGrid.querySelectorAll('button')
           sequenceWinnerSymbolsArr.forEach((winIndex) => {
-            
             allButtons.forEach((cell, index) => {
               if(index == winIndex) cell.classList.add(cellClassname[currentStep])
             })
           })
-          alert('win')
+          alert(currentStep  + ' is winner')
+          setIsWinner(true)
           return
         },100)
       }  
