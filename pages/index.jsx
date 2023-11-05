@@ -6,7 +6,7 @@ import { Opponents } from "../src/components/Opponents";
 import React from "react";
 
 export default function HomePage() {
-  const [playersCount] = useState(4);
+  const [playersCount] = useState(2);
   const { cells, currentStep, nextStep, handleCellClick, isWinner, handlePlayerTimeOver} = useGameState({
     playersCount
   });

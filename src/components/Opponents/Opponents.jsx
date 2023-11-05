@@ -9,7 +9,6 @@ import lara from "../Ui/img/lara.png";
 import dodik from "../Ui/img/dodik.png";
 import { GAME_SYMBOLS } from "../Field/constants.js";
 import { GameSymbol } from "../Field/GameSymbol.jsx";
-import { MOVE_ORDER } from "../Field/constants.js";
 
 const players = [
   {
@@ -71,14 +70,6 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning, isWinner, playersCoun
 
   const isDanger = seconds < 10
 
-  // function getPreviousElem(currentStep, count) {
-  //     const shortMoveOrder = MOVE_ORDER.slice(0, count);
-    
-  //     const previousSymbol = shortMoveOrder.indexOf(currentStep) - 1;
-  //     console.log( shortMoveOrder)
-  //     return shortMoveOrder[previousSymbol] ?? shortMoveOrder[shortMoveOrder.length - 1];
-  // }
-
   useEffect(()=> {
     const timer = setInterval(()=> {
       if(isTimerRunning) {
@@ -93,7 +84,7 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning, isWinner, playersCoun
   }, [isTimerRunning, isWinner])
 
   useEffect(()=> {
-      if(seconds == 55) {
+      if(seconds == 1) {
         onTimeOver()
       }
     } 

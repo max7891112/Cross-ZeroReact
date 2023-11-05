@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MOVE_ORDER } from "./constants";
 import { algoritmWinner } from "./algoritmWinner.js";
 
@@ -16,11 +16,17 @@ export function useGameState({ playersCount}) {
     currentStep: MOVE_ORDER[0],
     playersTimeOver: []
   }));
-
+  
   const nextStep = getNextSymbol(currentStep, playersCount, playersTimeOver);
+  const winnerSymbol = nextStep === currentStep ? currentStep : ''
 
-  // const winnerSymbol = nextStep === currentStep ? currentStep : 
-
+  useEffect(()=> {  // определение победителя по времени
+    if(winnerSymbol) {
+      setIsWinner(true)
+      alert(currentStep + ' is winner')
+    }
+  }, [winnerSymbol, currentStep])
+  
   function handlePlayerTimeOver (symbol) {
     setGameState((lastGameState) => {
       return {
@@ -36,9 +42,8 @@ export function useGameState({ playersCount}) {
       return;
     }
     if(isWinner) return
-
     algoritmWinner(index, currentStep, cells, setIsWinner)
-
+    
     setGameState((lastGameState) => ({
       ...lastGameState,
       currentStep: getNextSymbol(lastGameState.currentStep, playersCount, lastGameState.playersTimeOver),
