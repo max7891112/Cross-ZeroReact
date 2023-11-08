@@ -5,7 +5,7 @@ import avatarProfile from "../Ui/img/avatar.jpg";
 import { Profile } from "../Profile";
 import { VectorIcon } from "./VectorIcon";
 import { UiButton } from "../Ui/uiButton";
-export function Header() {
+export function Header({handleResetClick, betweenGames}) {
   return (
     <>
       <header className={styles.header}>
@@ -13,7 +13,7 @@ export function Header() {
           <div>
             <Image src={logo} alt="logo" />
           </div>
-          <UiButton variant="play" margin={styles.margin}>
+          <UiButton variant="play" margin={styles.margin} handleClick={()=> {betweenGames ? handleResetClick() : ''}}> 
             play
           </UiButton>
         </div>

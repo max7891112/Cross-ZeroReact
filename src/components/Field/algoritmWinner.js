@@ -1,6 +1,6 @@
 import { cellClassname , prohibitIndexesObj} from './constants.js'
 
-export function algoritmWinner (index, currentStep, cells, setIsWinner) {
+export function algoritmWinner (index, currentStep, cells, setIsWinner, setWinnerSequence) {
   const objWinnerVariabales = {
     1: 1,
     19: 1,
@@ -17,8 +17,9 @@ export function algoritmWinner (index, currentStep, cells, setIsWinner) {
           let [notWinnerCombination, winnerSymbolsArr] = throwIncorrectWinCombination(sequenceWinnerSymbols)
 
           if(notWinnerCombination) return
-
+          setWinnerSequence(winnerSymbolsArr)
           addWinClassAndWindow(winnerSymbolsArr, currentStep, setIsWinner)
+          
           return
         },100)
       }  
@@ -30,24 +31,28 @@ export function algoritmWinner (index, currentStep, cells, setIsWinner) {
     let sequenceWinnerSymbols = new Set()
     baseRecursion(currentIndex, 1, objWinnerVariabales, sequenceWinnerSymbols)
     baseRecursion(currentIndex, -1, objWinnerVariabales, sequenceWinnerSymbols)
+    return sequenceWinnerSymbols
   }
 
   function findWinTopBottomDirection(currentIndex) {
     let sequenceWinnerSymbols = new Set()
     baseRecursion(currentIndex, -19, objWinnerVariabales, sequenceWinnerSymbols)
     baseRecursion(currentIndex, 19, objWinnerVariabales, sequenceWinnerSymbols)
+    return sequenceWinnerSymbols
   }
 
   function findWinTopBottomCrossDirection(currentIndex) {
     let sequenceWinnerSymbols = new Set()
     baseRecursion(currentIndex, -20, objWinnerVariabales, sequenceWinnerSymbols)
     baseRecursion(currentIndex, 20, objWinnerVariabales, sequenceWinnerSymbols)
+    return sequenceWinnerSymbols
   }
 
   function findWinRightTopDirection(currentIndex) {
     let sequenceWinnerSymbols = new Set()
     baseRecursion(currentIndex, -18, objWinnerVariabales, sequenceWinnerSymbols)
     baseRecursion(currentIndex, 18, objWinnerVariabales, sequenceWinnerSymbols)
+    return sequenceWinnerSymbols
   }
 
   findWinRightLeftDirection(index)
@@ -57,14 +62,13 @@ export function algoritmWinner (index, currentStep, cells, setIsWinner) {
 }
 
 function addWinClassAndWindow (sequenceWinnerSymbolsArr, currentStep, setIsWinner) {
-  let gameFieldGrid = document.getElementById('gameFieldGrid')
-  let allButtons = gameFieldGrid.querySelectorAll('button')
+  const gameFieldGrid = document.getElementById('gameFieldGrid')
+  const allButtons = gameFieldGrid.querySelectorAll('button')
   sequenceWinnerSymbolsArr.forEach((winIndex) => {
     allButtons.forEach((cell, index) => {
       if(index == winIndex) cell.classList.add(cellClassname[currentStep])
     })
   })
-  alert(currentStep  + ' is winner')
   setIsWinner(true)
 }
 

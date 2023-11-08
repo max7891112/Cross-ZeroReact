@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import style from "./uiStyle.module.scss";
-export function UiButton({ children, variant, margin }) {
+export function UiButton({ children, variant, margin, handleClick }) {
   const buttonClassName = clsx(
     style.button,
     margin,
@@ -10,5 +10,5 @@ export function UiButton({ children, variant, margin }) {
       giveUp: style.giveUp,
     }[variant],
   );
-  return <button className={buttonClassName}>{children}</button>;
+  return <button className={buttonClassName} onClick={handleClick}>{children}</button>;
 }

@@ -3,43 +3,8 @@ import clsx from "clsx";
 import stylesOpponent from "./opponents.module.scss";
 import styles from "../Header/header.module.scss";
 import { Profile } from "../Profile";
-import avatarMen from "../Ui/img/avatar.jpg";
-import avatarGirl from "./img/girlAvatar.svg";
-import lara from "../Ui/img/lara.png";
-import dodik from "../Ui/img/dodik.png";
-import { GAME_SYMBOLS } from "../Field/constants.js";
 import { GameSymbol } from "../Field/GameSymbol.jsx";
-
-const players = [
-  {
-    id: 1,
-    name: "Paromovevg",
-    rate: 1230,
-    avatar: avatarMen,
-    symbol: GAME_SYMBOLS.CROSS,
-  },
-  {
-    id: 2,
-    name: "VereIntedinglapotur",
-    rate: 850,
-    avatar: avatarGirl,
-    symbol: GAME_SYMBOLS.ZERO,
-  },
-  {
-    id: 3,
-    name: "Lara",
-    rate: 1400,
-    avatar: lara,
-    symbol: GAME_SYMBOLS.TRIANGLE,
-  },
-  {
-    id: 4,
-    name: "Додик",
-    rate: 760,
-    avatar: dodik,
-    symbol: GAME_SYMBOLS.SQUARE,
-  },
-];
+import { players } from "../Field/constants.js";
 
 export function Opponents({ playersCount, currentStep, isWinner, onPlayerTimeOver }) {
   return (
@@ -84,7 +49,7 @@ function PlayerInfo({ playerInfo, isRight, isTimerRunning, isWinner, playersCoun
   }, [isTimerRunning, isWinner])
 
   useEffect(()=> {
-      if(seconds == 1) {
+      if(seconds == 55) {
         onTimeOver()
       }
     } 

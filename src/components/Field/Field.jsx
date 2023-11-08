@@ -4,12 +4,14 @@ import clsx from "clsx";
 import { GameSymbol } from "./GameSymbol";
 import { getSymbolIcon } from "./GetSymbolIcon.jsx";
 
-export function Field({ margin, cells, currentStep, nextStep, handleCellClick}) {
+export function Field({ margin, cells, currentStep, nextStep, handleCellClick, surrenderClick, betweenGames}) {
   return (
     <GameFieldlayout margin={margin}>
       <GameMoveInfo
         currentStep={currentStep}
         nextStep={nextStep}
+        surrenderClick={surrenderClick}
+        betweenGames={betweenGames}
       ></GameMoveInfo>
       <GameFieldGrid>
         {cells.map((symbol, index) => (
@@ -29,7 +31,7 @@ function GameFieldlayout({ children, margin }) {
   return <div className={clsx(style.field, margin)}>{children}</div>;
 }
 
-function GameMoveInfo({ currentStep, nextStep }) {
+function GameMoveInfo({ currentStep, nextStep, surrenderClick, betweenGames }) {
   return (
     <div className={style.field__topContainer}>
       <div className={style.field__leftPart}>
@@ -44,7 +46,7 @@ function GameMoveInfo({ currentStep, nextStep }) {
       </div>
       <div className={style.field__rightPart}>
         <UiButton variant="draw">Ничья</UiButton>
-        <UiButton variant="giveUp">Сдаться</UiButton>
+        <UiButton variant="giveUp" handleClick={()=> !betweenGames ? surrenderClick(currentStep) : ''}>Сдаться</UiButton>
       </div>
     </div>
   );
